@@ -28,7 +28,7 @@ print("Starting simple agent with structured output...")
 
 try:
     model = OpenAIModel(
-        'gpt-4o-mini',
+        'gemini-2.0-flash',
         provider=OpenAIProvider(
             base_url=API_URL, api_key=API_KEY
         ),
