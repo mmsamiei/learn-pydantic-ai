@@ -3,8 +3,6 @@ import datetime
 import time
 import random
 
-import config
-
 async def greet(name):
     time_to_sleep = random.randint(1, 5)
     print(f"{datetime.datetime.now().time()}: Hello, {name}! sleep {time_to_sleep} seconds")
