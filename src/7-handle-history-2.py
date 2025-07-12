@@ -62,6 +62,8 @@ result2 = agent_gemini.run_sync(
     'Tell me a different joke.', message_history=same_history_as_step_1
 )
 
+print(result2.all_messages_json())
+
 result3 = agent_gemini.run_sync(
     'Tell me a different joke.', message_history=result2.all_messages()
 )
@@ -73,5 +75,3 @@ result4 = agent_gemini.run_sync(
 result5 = agent_gemini.run_sync(
     'Tell me a different joke', message_history=result3.all_messages()
 )
-
-print(result5.all_messages())
