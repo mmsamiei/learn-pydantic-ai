@@ -38,6 +38,13 @@ Fatemeh Tamehri is a 20 years old girl.
 Fatemeh Tamehri gets 0 marks in math.
 Fatemeh Tamehri gets 2 marks in computer.
 Fatemeh Tamehri gets 2 point less than emma in science.
+Ali Rezaei is a 15 years old boy.
+Ali Rezaei gets 10 marks in math.
+Ali Rezaei gets 12 marks in science.
+Ali Rezaei gets 14 marks in english.
+Ali Rezaei gets 16 marks in computer.
+Ali Rezaei gets 18 marks in history.
+Ali Rezaei gets 20 marks in geography.
 """
 
 gemini_model = OpenAIModel(
@@ -53,7 +60,7 @@ retrieval_agent = Agent(
 
 @retrieval_agent.tool
 async def retrieve_documents(ctx: RunContext, query: str) -> str:
-    """all sentences that may be relevant to the user's query."""
+    """return all sentences that may be relevant to the user's query."""
     return plain_text
 
 generation_agent = Agent(
@@ -64,6 +71,7 @@ generation_agent = Agent(
 @generation_agent.tool
 async def retrieve_documents(ctx: RunContext, inquery: str) -> str:
   result = await retrieval_agent.run(inquery)
+  logging.info(f"retrieved documents: {result}")
   return result
 
 result = generation_agent.run_sync('what is the average marks of Tamehri?')
